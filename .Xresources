@@ -1,0 +1,105 @@
+!---------
+!  XTerm |
+!---------
+xterm*ScrollBar: true
+xterm*cursorBlink: never
+xterm*rightScrollBar: true
+XTerm.VT100.cursorBlink: never
+XTerm*selectToClipboard: true
+xterm*selectToClipboard: true
+
+xterm.termName: xterm-256color
+xterm*faceName: Hack Nerd Font
+xterm*faceSize: 18
+! xterm*loginShell: true
+xterm*vt100*geometry: 100x30
+xterm*saveLines: 50000
+xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+xterm*termName: xterm-color
+xterm*eightBitInput: false
+xterm*foreground: rgb:f9/f9/f9
+xterm*background: rgb:22/22/22
+xterm*color0: rgb:3f/3f/3f
+xterm*color1: rgb:cc/00/00
+xterm*color2: rgb:4e/9a/06
+xterm*color3: rgb:c4/a0/00
+xterm*color4: rgb:34/65/a4
+xterm*color5: rgb:ad/6a/b8
+xterm*color6: rgb:06/98/9a
+xterm*color7: rgb:dc/dc/cc
+xterm*color8: rgb:54/54/54
+xterm*color9: rgb:fc/54/54
+xterm*color10: rgb:8a/e2/34
+xterm*color11: rgb:fc/e9/4f
+xterm*color12: rgb:94/bf/f3
+xterm*color13: rgb:dc/95/e8
+xterm*color14: rgb:93/e0/e3
+xterm*color15: rgb:ff/ff/ff
+xterm*boldMode: false
+xterm*colorBDMode: true
+xterm*colorBD: rgb:ff/ff/ff
+
+!! Keybinding ========================================================
+! http://blog.rot13.org/2010/03/change-font-size-in-xterm-using-keyboard.html
+! - change fontsize on the fly (ctrl+plus = increase ; ctrl+minus = decrease, ctrl+0 = default)
+! - copy/paste hotkey (ctrl+shift+c = copy ; ctrl+shift+v = paste)
+! - open url (clickable links)
+!   1) double click to highlight the full url
+!   2) Shift + click it to open it
+
+XTerm.vt100.translations: #override
+  Shift<Btn1Down>: select-start()
+  Shift<Btn1Motion>: select-extend()
+  Shift<Btn1Up>: select-end(CLIPBOARD)
+  Shift<Btn2Up>: insert-selection(CLIPBOARD)
+  Shift<Btn3Down>: start-extend()
+  Shift<Btn3Motion>: select-extend()
+  Shift<BtnUp>:	select-end(CLIPBOARD)
+  Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+  Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
+!---------
+! UXTerm |
+!---------
+! termtype
+
+UXTerm*selectToClipboard: true
+
+UXTerm*termName: xterm-256color
+UXTerm*cursorColor:        #c8c8c8
+UXTerm*VT100.geometry:     100x30
+UXTerm*font:               Monospace
+UXTerm*faceSize:		   11
+UXTerm*dynamicColors:      true
+UXTerm*utf8:               2
+UXTerm*eightBitInput:      true
+UXTerm*saveLines:          50000
+UXTerm*scrollKey:          true
+UXTerm*scrollTtyOutput:    false
+UXTerm*scrollBar:          false
+UXTerm*rightScrollBar:     false
+UXTerm*jumpScroll:         true
+UXTerm*multiScroll:        true
+UXTerm*toolBar:            false
+
+! fix colors
+UXTerm*background: rgb:63/63/63
+UXTerm*foreground: rgb:f9/f9/f9
+UXTerm*color0: rgb:3f/3f/3f
+UXTerm*color1: rgb:cc/00/00
+UXTerm*color2: rgb:4e/9a/06
+UXTerm*color3: rgb:c4/a0/00
+UXTerm*color4: rgb:34/65/a4
+UXTerm*color5: rgb:ad/6a/b8
+UXTerm*color6: rgb:06/98/9a
+UXTerm*color7: rgb:dc/dc/cc
+UXTerm*color8: rgb:54/54/54
+UXTerm*color9: rgb:fc/54/54
+UXTerm*color10: rgb:8a/e2/34
+UXTerm*color11: rgb:fc/e9/4f
+UXTerm*color12: rgb:94/bf/f3
+UXTerm*color13: rgb:dc/95/e8
+UXTerm*color14: rgb:93/e0/e3
+UXTerm*color15: rgb:ff/ff/ff
+UXTerm*boldMode: false
+UXTerm*colorBDMode: true
+UXTerm*colorBD: rgb:ff/ff/ff
