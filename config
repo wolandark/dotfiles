@@ -1,0 +1,289 @@
+###############################################################################
+#__        __    _                 _   _ _____        ____                    #
+#\ \      / /__ | | __ _ _ __   __| | (_)___ /       / ___| __ _ _ __  ___    #
+# \ \ /\ / / _ \| |/ _` | '_ \ / _` | | | |_ \ _____| |  _ / _` | '_ \/ __|   #
+#  \ V  V / (_) | | (_| | | | | (_| | | |___) |_____| |_| | (_| | |_) \__ \   #
+#   \_/\_/ \___/|_|\__,_|_| |_|\__,_| |_|____/       \____|\__,_| .__/|___/   #
+#                                                               |_|           #
+###############################################################################
+
+###########
+# MOD KEY #
+###########
+set $mod Mod4
+set $mod1 Mod1
+##########################
+#  Needed for i3-gaps    #
+# hide_edge_borders both # 
+##########################
+for_window [class="^.*"] border pixel 2 
+gaps inner 8
+gaps outer 8
+bindsym $mod+z          gaps outer current plus 5
+bindsym $mod+Shift+z    gaps outer current minus 5
+#######################
+# Kill Focused Window #
+#######################
+bindsym $mod+q kill
+############
+# Terminal #
+############
+set $myTerm konsole
+set $myTerm2 xfce4-terminal
+# start a terminal
+bindsym $mod+Return exec $myTerm
+bindsym $mod+Shift+Return exec $myTerm2
+#bindsym $mod+t exec $myTerm
+################
+# KEY BINDINGS #
+################
+bindsym $mod+Ctrl+o exec $myTerm -e vim ~/.config/i3/config
+#System Monitoring
+bindsym $mod+Shift+End exec $myTerm -e htop 
+#Terminal FileManager
+bindsym $mod+Shift+Home exec $myTerm -e ranger
+#Terminal Browser
+bindsym $mod+Shift+Page_Up exec $myTerm -e links www.google.com
+#GUI FileManager
+bindsym $mod1+f exec pcmanfm
+#Nmtui
+bindsym $mod+Shift+Page_Down exec $myTerm -e nmtui
+#Browser
+bindsym $mod+Shift+w exec brave 
+bindsym $mod1+w exec /home/woland/Downloads/waterfox/waterfox
+bindsym $mod1+Shift+f exec firefox
+#Others
+bindsym $mod1+v exec virt-manager
+bindsym $mod1+o exec obs
+bindsym $mod1+r exec /home/woland/opt/REAPER/reaper
+bindsym $mod1+k exec kdenlive
+bindsym $mod1+g exec gimp
+bindsym $mod1+t exec /home/woland/Downloads/Telegram/Telegram
+
+#LockScreen
+bindsym Scroll_Lock exec i3lock -i ~/Pictures/Arch7.png
+#LogOut
+bindsym $mod+Ctrl+l exec loginctl terminate-user $USER
+#Idle
+exec --no-startup-id /home/woland/.config/i3/idle.sh
+
+# Use pactl to adjust volume in PulseAudio.
+#For Laptop Volume Keys.
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF84AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#########################
+# Program Launcher Rofi #
+#########################
+bindsym $mod+d exec --no-startup-id rofi -show drun -icon-theme "Papirus" -show-icons
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# You can also use the arrow keys
+ bindsym $mod+Left focus left
+ bindsym $mod+Down focus down
+ bindsym $mod+Up focus up
+ bindsym $mod+Right focus right
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# split in horizontal orientation
+bindsym $mod+Ctrl+v split h
+# split in vertical orientation
+bindsym $mod+Ctrl+h split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+c focus child
+
+##############
+# WORKSPACES #
+##############
+workspace_layout default
+default_border none
+new_window 1pixel
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -B 'Yes' 'i3-msg exit'"
+
+bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
+############
+# Resizing #
+############
+bindsym $mod+r mode "resize"
+bindsym $mod+Ctrl+p exec --no-startup-id xkb-switch -n
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+#####################
+# Auto Start Items  #
+#####################
+# For Randomized Backgrounds Choose A Directory With Pictures and Uncomment The Two Lines Below
+exec --no-startup-id feh --bg-scale ~/Pictures/Arch1.jpg
+exec --no-startup-id ~/.screenlayout/i3maindisplay.sh
+exec_always i3a-master-stack
+# exec --no-startup-id nitrogen --restore
+exec_always xcompmgr 
+# exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/woland/.config/i3/workspace-1.json'"
+
+############
+#Scratchpad#
+############
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+exec_always xdman 
+for_window [class="xdman-Main"] , move scratchpad
+bindsym $mod+x [class="xdman-Main"] scratchpad show
+
+exec --no-startup-id konsole --title btm,btm -e btm
+for_window [title="btm"] , move scratchpad
+bindsym $mod+b [title="btm"] scratchpad show
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+# exec --no-startup-id nm-applet
+
+#########
+# Fonts #
+#########
+# This Font Is Used For The Window Titles And For The Bar Unless Defined Otherwised
+# I Have Removed The Window Titles As They Were Ugly To Me
+font xft:Mononoki 10
+# Font Pango Can Be Used For Glyphs In The Bar
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4: "
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+#Assign
+for_window [class="Virt-manager"] move to workspace $ws7
+#######
+# BAR #
+#######
+# This Config Uses Bumblebee-Status For The Bar You Must Get It From The Github 
+ bar {
+     font xft:pango 10
+         status_command ~/bs/bs/bumblebee-status -m  vpn libvirtvms cpu memory pasink arch-update layout-xkbswitch time  \
+     -p time.format="%H:%M" memory.format={used} -t gruvbox-powerline
+     position top
+ }
+#  bar {
+#         font xft:pango 10
+#         status_command i3blocks -c /home/woland/.config/i3/i3blocks.conf
+#         position bottom
+#         workspace_buttons no
+#  colors{
+#         background $darkgrey
+#         }
+#         }
+# set $darkgrey    #383c4a
+
+#########################################################
+# colorschemes to choose from for the bumblebee status  #
+#########################################################
+# -t gruvbox-powerline
+# -t gruvbox-powerline-light 
+# -t solarized-powerline
+# -t gruvbox
+# -t gruvbox-light 
+# -t solarized
+# -t powerline
+# -t greyish-powerline 
+# -t iceberg 
+# -t iceberg-powerline 
+# -t iceberg-dark-powerline 
+# -t iceberg-rainbow 
+# -t iceberg-contrast 
+# -t onedark-powerline 
+# -t dracula-powerline 
+# -t nord-powerline 
+# -t night-powerline 
+# Default (nothing or -t default)
